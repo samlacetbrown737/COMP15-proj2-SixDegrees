@@ -24,8 +24,6 @@ main.cpp - Handles driver functions
 testcommands.txt - Holds commands to test file based input
 testcommands - Commented version of testcommands.txt
 testartists.txt - Holds a small selection of artists/songs for a graph
-testoutput.txt - Sample output from using the other two files and redirecting
-testoutput2.txt - Sample output from redirecting the reference implementation
 README - this file
 Makefile - compiles the program
 
@@ -33,7 +31,7 @@ How to build and run program:
 - to compile
 make SixDegrees
 - to run
-./SixDegrees
+./SixDegrees artistList [commands] [outputFile]
 
 Data structures and algorithms:
 The primary algorithms implemented in this assignment were a depth-first search
