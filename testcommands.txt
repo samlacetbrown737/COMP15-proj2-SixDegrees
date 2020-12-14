@@ -1,0 +1,52 @@
+dfs
+Machine Gun Kelly
+blackbear
+dfs
+Halsey
+blackbear
+dfs
+Pierce the Veil
+Halsey
+dfs
+Halsey
+testerA
+dfs
+All Time Low
+Yellowcard
+bfs
+Machine Gun Kelly
+blackbear
+bfs
+Halsey
+blackbear
+bfs
+Pierce the Veil
+Halsey
+bfs
+Halsey
+testerA
+bfs
+All Time Low
+Yellowcard
+not
+You Me At Six
+blackbear
+Halsey
+*
+not
+State Champs
+Halsey
+Linkin Park
+Bring Me The Horizon
+*
+not
+Linkin Park
+YUNGBLUD
+*
+not
+State Champs
+Halsey
+Linkin Park
+Halsey
+*
+quit

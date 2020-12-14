@@ -1,0 +1,74 @@
+Title:          Project 2:  Six Degrees of Collaboration
+Author:         Sam Lacet-Brown
+Time invested:  29
+----------------------------------------------------------------------
+
+Purpose:
+    This program finds a path between two artists, with optional exclusions.
+    This is similar to Six Degrees of Kevin Bacon, but with artists and songs
+    instead of actors and movies. It can be run to return either the first path
+    it finds or specfically the shortest one.
+
+
+Acknowledgements:
+    Thanks to the C++ reference for explaining iterators, and to the TA Ellis
+    for his help on the algorthims
+
+Files:
+    name        purpose
+    ----        -------
+SixDegrees.cpp - Implementation of SixDegrees, includes graph population,
+    printing paths and the search algorithms.
+SixDegrees.h - Interface of SixDegrees.
+main.cpp - Handles driver functions
+testcommands.txt - Holds commands to test file based input
+testcommands - Commented version of testcommands.txt
+testartists.txt - Holds a small selection of artists/songs for a graph
+testoutput.txt - Sample output from using the other two files and redirecting
+testoutput2.txt - Sample output from redirecting the reference implementation
+README - this file
+Makefile - compiles the program
+
+How to build and run program:
+- to compile
+make SixDegrees
+- to run
+./SixDegrees
+
+Data structures and algorithms:
+The primary algorithms implemented in this assignment were a depth-first search
+and a breadth-first search. The main structure for DFS is a queue, while the
+main structure for BFS is a stack. The queue is a FIFO structure in
+which the first nodes we find while exploring are the first ones to be
+explored, such that we go out in a line to see if there is any connection
+rather than searching all the closest nodes first. This travels a far
+distance quickly, and is ideal for wide/branching datasets. A stack is a LIFO
+struture in which the most recently added nodes are explored first, such that
+we explore all of the closest nodes before moving out to the next level of
+distance. This is ideal for efficently finding the shortest path.
+
+Testing and other details:
+    I started with the search algorthims first, which made testing hard, but
+    once I had a way to read in artists, I checked that each artist was being
+    read in and looked at each song before it was added. I then checked each
+    artist for collaborations to add the edges and printed each connection
+    that was added. Once my graph was read in correctly, I made a test file
+    to check each collaboration was being listed. I then tested dfs and found
+    it had issues primarily when an artist only had one song, something was
+    going wrong in the while loop that would lead the top item of the stack
+    to be correct at the  end of the loop but wrong at the start of the next
+    cycle, despite the actual explore stack being outside the scope of the
+    loop. I temporarily fixed this by saving the name of the next artist
+    and simply locating that vertex again. I eventually realized my issue
+    was that my stack held pointers instead of simply Artist objects.
+    My other unusual solution came in my path, as the last predecessor
+    tended to cause errors so I simply passed in the stack up until 
+    that point and then did the last step. Artists that directly
+    collaborated needed to be processed differently, so those are caught
+    before the print function is run. I including testing for artists that 
+    aren't connected, as well as for those that get inserted twice. For them,
+    I checked the songs that are only present in their second listing as 
+    well as ones only in the first. The second listing seems to remove the
+    mention of the song they worked together in paths, but it otherwise works,
+    and I was unable to fix this issue. I also tested to make sure EOF was
+    treated like the quit command.
